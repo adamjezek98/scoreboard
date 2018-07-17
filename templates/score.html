@@ -1,0 +1,39 @@
+<div class="chalk-text">
+    <h1>Nejlepší tlupy</h1>
+</div>
+
+<table class="chalk-table">
+    <tr>
+        {% for c in data["header"] %}
+            {% if c["id"] == data["header"][-1]["id"] %}
+                <td>&nbsp;</td>
+                <td class="table-right_column">&nbsp;</td>
+            {% endif %}
+
+            <td class="{% if c['id'] != "sums" %} rotate{% endif %} " style="vertical-align: bottom">
+                <div class="chalk-text"><span>  {{ c["value"] | safe }}</span></div>
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <td style="height: 25px"></td>
+    </tr>
+    {% for line in data["scores"] %}
+        <tr>
+            {% for c in line %}
+
+                {% if c["id"]==line[-1]["id"] %}
+                    <td>&nbsp;</td>
+                    <td class="table-right_column">&nbsp;</td>
+                {% endif %}
+
+                <td>
+                    <div class="chalk-text"><span>
+                        {% if c["value"] != "XXX" %} {{ c["value"] | safe }} {% endif %}&nbsp;
+                    </span></div>
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+
+</table>

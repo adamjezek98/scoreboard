@@ -1,0 +1,25 @@
+<div class="chalk-text">
+    <h1>Výsledky</h1>
+</div>
+
+<table class="chalk-table" border="1" id="table_edit">
+    <thead>
+    <tr>
+        {% for c in data["header"] %}
+            <td id="{{ c["id"] }}"> {{ c["value"] | safe }}</td>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for line in data["scores"] %}
+        <tr>
+            {% for c in line %}
+                <td id="{{ c['id'] }}">
+                    {{ c['value'] | safe }}&nbsp;
+                </td>
+            {% endfor %}
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

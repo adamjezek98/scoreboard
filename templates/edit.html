@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Score</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/jquery.editable.min.js"></script>
+
+</head>
+<body>
+
+<div id="score_view">
+
+</div>
+
+&nbsp;<label>Přidat tým</label>
+<input id="addTeam"/>
+<button onclick="addTeam()">OK</button>
+<br/><br/>
+
+&nbsp;<label>Přidat soutěž</label>
+<input id="addComp"/>
+<button onclick="addComp()">OK</button>
+
+<br/><br/><br/><br/>
+
+&nbsp;<label>Přidat Zprávu</label>
+<input style="width:80%;" id="addMsg"/>
+<button onclick="addMsg()">OK</button>
+
+<style>
+    input {
+        width: 80%;
+    }
+</style>
+
+<div class="messagesList">
+
+</div>
+
+<script>
+
+    function editableScore() {
+        elements = $("td");
+        for (i = 0; i < elements.length; i++) {
+            el = elements[i];
+            makeElementEditable(el)
+        }
+    }
+    function editableMessages() {
+         elements = $(".ti_news");
+        for (i = 0; i < elements.length; i++) {
+            el = elements[i];
+            makeElementEditable(el)
+        }
+    }
+
+    function makeElementEditable(el) {
+        if (el.id) {
+            elem = "#" + el.id.replace(/:/g, "\\:");
+            $(elem).editable("click", function (e) {
+                if (e.value ) {
+                    if(e.value != e.old_value) {
+                        httpGetAsync("/processedit?id=" + e.target[0].id + "&value=" + e.value, function () {
+                            refreshScore();
+                        })
+                    }
+                } else {
+                    if (confirm("Opravdu smazat " + e.old_value + "?")) {
+                        httpGetAsync("/processedit?id=del:" + e.target[0].id + "&value=" + e.value, function () {
+                            refreshScore();
+                        })
+                    } else {
+                        refreshScore();
+                    }
+                }
+            });
+        }
+    }
+
+    function refreshScore() {
+        httpGetAsync("/score-edit", function (response) {
+            $("#score_view").html(response);
+            editableScore();
+        })
+    }
+
+    function addTeam() {
+        httpGetAsync("/processedit?id=add:team&value=" + $("#addTeam")[0].value, function () {
+            refreshScore();
+        });
+    }
+
+    function addComp() {
+        httpGetAsync("/processedit?id=add:comp&value=" + $("#addComp")[0].value, function () {
+            refreshScore();
+        });
+    }
+
+    function addMsg() {
+        httpGetAsync("/processedit?id=add:msg&value=" + $("#addMsg")[0].value, function () {
+            refreshMessages();
+        });
+    }
+
+    function refreshMessages() {
+        httpGetAsync("/messages", function (response) {
+            $(".messagesList").html(response);
+            editableMessages();
+            $(".newliner").html("<br/>")
+        })
+    }
+
+    refreshScore();
+    refreshMessages();
+
+
+</script>
+</body>
+</html>

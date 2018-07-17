@@ -1,0 +1,8 @@
+{% for message in messages %}
+    <span class="ti_news news_item"
+          id="{{ message["id"] }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ message["text"] |safe }}</span>
+    <span class="newliner"></span>
+{% endfor %}
+{% for i in range(10) %}
+    &nbsp;
+{% endfor %}

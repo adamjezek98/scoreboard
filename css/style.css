@@ -1,0 +1,106 @@
+
+table {
+    margin: 10px;
+
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/img/background.jpg);
+    color: white;
+
+}
+
+
+
+.chalk-table {
+    /*
+    border: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 10px 5px 5px 10px;
+    -moz-border-image: url(/img/chalk.png) 10 5 5 10 repeat;
+    -webkit-border-image: url(/img/chalk.png) 10 5 5 10 repeat;
+    -o-border-image: url(/img/chalk.png) 10 5 5 10 repeat;
+    border-image: url(/img/chalk.png) 10 5 5 10 repeat;
+    */
+    width: 95%;
+    text-align: center;
+    align-content: center;
+    margin-left: 5%;
+}
+
+.chalk-text {
+    color: #fff;
+    /*
+    background: url(/img/chalk_back.jpg);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    */
+    font-family: kgchasing;
+    font-size: 2em;
+}
+
+td, th {
+    padding: 5px;
+    text-align: center;
+    height: 50px;
+}
+
+tr {
+    /*
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+    */
+}
+
+.table-right_column {
+    text-align: right;
+    width: 100%;
+    padding-right: 5%;
+
+}
+
+.table-right_column > div {
+    transform: none;
+    margin: 0;
+    text-align: right;
+    width: 100%;
+}
+
+@font-face {
+    font-family: 'kgchasing';
+    src: url('/css/kg-chasing-pavements.regular.ttf') format('truetype')
+}
+
+h1 {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 2em;
+}
+
+html, body, table {
+    height: 95%;
+}
+
+td.rotate {
+    /* Something you can count on */
+    height: 140px;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+td.rotate > div {
+    transform: /* Magic Numbers */ translate(25px, 51px) /* 45 is really 360 - 45 */ rotate(315deg);
+    width: 90px;
+    margin-top: 80px;
+    margin-bottom: 55px;
+}
+
+.marquee {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    position: fixed;
+    bottom: 15px;
+}
