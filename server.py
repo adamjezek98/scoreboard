@@ -25,7 +25,7 @@ def score_editor():
 @app.route("/score-edit")
 def score_edit():
     logic = lc.Logic()
-    return render_template("score_edit.html", data=lbogic.get_table_editable())
+    return render_template("score_edit.html", data=logic.get_table_editable())
 
 
 @app.route("/messages")

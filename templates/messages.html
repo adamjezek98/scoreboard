@@ -2,7 +2,7 @@
     <span class="ti_news news_item" id="{{ message["id"] }}">&nbsp;&nbsp;&nbsp;
         {% if isEdit %}
             &nbsp;&nbsp; {{ message["text"]  }}
-        {% elif %}
+        {% else %}
             &nbsp;&nbsp; {{ message["text"] |safe }}
         {% endif %}
     </span>

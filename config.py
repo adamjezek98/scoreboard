@@ -1,1 +1,1 @@
-db_path = "D:\\OneDrive\\projekty\\personal\\scoreboard\\database.sqlite3"
+db_path = "./database.sqlite3"
