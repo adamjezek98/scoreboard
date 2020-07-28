@@ -6,7 +6,7 @@
     <thead>
     <tr>
         {% for c in data["header"] %}
-            <td id="{{ c["id"] }}"> {{ c["value"] | safe }}</td>
+            <td id="{{ c["id"] }}"> {{ c["value"] }}</td>
         {% endfor %}
     </tr>
     </thead>
@@ -15,7 +15,7 @@
         <tr>
             {% for c in line %}
                 <td id="{{ c['id'] }}">
-                    {{ c['value'] | safe }}&nbsp;
+                    {{ c['value'] }}&nbsp;
                 </td>
             {% endfor %}
 

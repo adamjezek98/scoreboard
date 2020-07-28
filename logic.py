@@ -49,8 +49,8 @@ class Logic():
 
         data["header"].append({"id": "sums", "value": "Součet"})
 
-        data["scores"].sort(key=lambda x: x[-1]["value"])
-        print(data["scores"])
+        data["scores"].sort(key=lambda x: -float(x[-1]["value"]))
+
 
         return data
 
@@ -119,16 +119,6 @@ class Logic():
             return "NOK"
 
 
-def sort_scores(a, b):
-    print(a[-1]["value"] < b[-1]["value"])
-    return a[-1]["value"] < b[-1]["value"]
 
 
-[[{'id': 'team:6', 'value': 'Berserkové'}, {'id': 'res:16', 'value': '2'}, {'id': 'res:21', 'value': '2'},
-  {'id': 'res:25', 'value': '3'}, {'id': 'sum:6', 'value': '7'}],
- [{'id': 'team:7', 'value': 'Ragnarok<br/>(Eyjafjallajökull)'}, {'id': 'res:17', 'value': '2'},
-  {'id': 'res:20', 'value': '1'}, {'id': 'res:24', 'value': '2'}, {'id': 'sum:7', 'value': '5'}],
- [{'id': 'team:8', 'value': 'Arijové'}, {'id': 'res:18', 'value': '3'}, {'id': 'res:23', 'value': '4'},
-  {'id': 'res:26', 'value': '4'}, {'id': 'sum:8', 'value': '11'}],
- [{'id': 'team:9', 'value': 'Skye'}, {'id': 'res:19', 'value': '4'}, {'id': 'res:22', 'value': '3'},
-  {'id': 'res:27', 'value': '4'}, {'id': 'sum:9', 'value': '11'}]]
+

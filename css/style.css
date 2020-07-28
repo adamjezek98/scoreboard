@@ -10,8 +10,6 @@ body {
 
 }
 
-
-
 .chalk-table {
     /*
     border: 0;
@@ -23,10 +21,10 @@ body {
     -o-border-image: url(/img/chalk.png) 10 5 5 10 repeat;
     border-image: url(/img/chalk.png) 10 5 5 10 repeat;
     */
-    width: 95%;
+    width: 100%;
     text-align: center;
     align-content: center;
-    margin-left: 5%;
+    margin-right: 5px;
 }
 
 .chalk-text {
@@ -91,10 +89,12 @@ td.rotate {
 }
 
 td.rotate > div {
-    transform: /* Magic Numbers */ translate(25px, 51px) /* 45 is really 360 - 45 */ rotate(315deg);
-    width: 90px;
-    margin-top: 80px;
-    margin-bottom: 55px;
+    /* transform: translate(25px, 51px) rotate(315deg); */
+    transform: rotate(-90deg);
+    transform-origin: bottom;
+    margin-top: 110px;
+    margin-bottom: 35px;
+    width: 60px;
 }
 
 .marquee {
@@ -103,4 +103,8 @@ td.rotate > div {
     line-height: 50px;
     position: fixed;
     bottom: 15px;
+}
+
+.table-last-column {
+    margin-right: 10px;
 }

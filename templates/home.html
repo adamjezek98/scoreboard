@@ -48,6 +48,8 @@
 
     function startMessages(len) {
         dur = len * 25;
+        console.log(dur);
+        dur = 14300;
         $('.marquee')
             .bind('finished', function () {
                 refreshMessages();
@@ -56,7 +58,7 @@
                 $('.marquee').css("visibility", "visible");
             })
             .marquee({
-                duration: dur,
+                duration: 6000,
                 gap: 500,
                 delayBeforeStart: 0,
                 direction: 'left',
